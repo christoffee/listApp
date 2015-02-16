@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-sm-4 col-md-3 lists">
+		<h1>{{listsCtrl.currentListName}}</h1>
+		<div class="list-group">
+			<div>
+				<a ng-repeat="list in listsCtrl.lists | filter:{list:listsCtrl.currentListName}" ui-sref="listApp.listTypes.lists({list: list.list, listItem: list.title})" class="list-group-item" ng-class="{'active':listsCtrl.isCurrentList(list)}">
+				 {{list.title}}
+				</a>
+				<span class="glyphicon glyphicon-edit"></span>
+			</div>
+			
+			<div ng-show="listsCtrl.isCreating">
+				<input  ng-model="listsCtrl.list">
+				<a class="list-group-item addItem" ng-click="listsCtrl.createList()">
+					<span class="glyphicon glyphicon-plus"></span> OK
+				</a>
+			</div>
+			<div ng-show="!listsCtrl.isCreating">
+				<a class="list-group-item addItem" ng-click="listsCtrl.editItem(listsCtrl.currentListName)">
+					<span class="glyphicon glyphicon-plus"></span> Add List
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-8 col-md-7 listItems">
+		<!-- <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
+		    <button type="button" class="btn btn-link" ng-click="setEditedBookmark(bookmark);startEditing();" ><span class="glyphicon glyphicon-pencil"></span>
+		    </button> -->
+		<h1>{{listsCtrl.currentListItemName}}</h1>
+		<h1>{{listsCtrl.currentListItems}}</h1>
+		<ul>	
+			<li ng-repeat="item in listsCtrl.currentListItems()"> {{item.name}}</li>
+			<li class="addItem">
+				<a>
+					<span class="glyphicon glyphicon-plus"></span> Add to List
+				</a>
+			</li>
+		</ul>		
+	</div>
+</div>

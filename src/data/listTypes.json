@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "name": "Shopping"
+    },
+    {
+        "id": 1,
+        "name": "Wish"
+    },
+    {
+        "id": 2,
+        "name": "To Do"
+    },
+    {
+        "id": 3,
+        "name": "Top 10"
+    }
+]

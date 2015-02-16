@@ -1,0 +1,4 @@
+<div class="list-group">
+	{{listTypeCtrl.listTypes}}
+  <a ng-repeat="listType in listTypesCtrl.listTypes" ui-sref="listApp.listTypes.lists({list:listType.name})"  class="list-group-item " ng-class="{'active':listTypesCtrl.isCurrentListType(listType)}">{{listType.name}}</a>
+</div>
