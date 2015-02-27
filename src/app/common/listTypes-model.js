@@ -6,7 +6,8 @@ angular.module('listApp.models.listTypes', [
 			URLS = {
 				FETCH: 'data/listTypes.json'
 			},
-			listTypes;
+			listTypes,
+			currentListType;
 
 		function extract (result) {
 			return result.data;

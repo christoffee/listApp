@@ -25,5 +25,16 @@ angular.module('listApp.models.lists', [
 			return (lists) ? $q.when(lists) : $http.get(URLS.FETCH).then(cacheLists);
 		}
 
+		model.createList = function (list){
+	    	var newList = {
+		        "id": lists.length,
+		        "list": listsCtrl.currentListName,
+		        "title": listsCtrl.list,
+		        "items": []
+		    };
+	    	listsCtrl.lists.push(newList);
+	    	listsCtrl.list = '';
+	    	listsCtrl.isCreating = false;
+	    }
 	})
 ;

@@ -8,6 +8,27 @@ angular.module('listTypes.lists.create', [])
 			})
 	}])
 	.controller('ListCreateCtrl', ['$state, $stateParams', 'ListModel', function($state, $stateParams, ListsModel){
-		
+		var listCreateCtrl = this;
+
+		function returnToLists () {
+			$state.go('listApp.listTypes.lists', {
+				list: $stateParams.list
+			})
+		}
+
+		function cancelCreating () {
+			returnToLists();
+		}
+
+		function createList (list) {
+			ListModel.createList(list);
+			returnToLists();
+		}
+
+		function resetForm () {
+			listCreateCtrl.newList = {
+				
+			}
+		}
 	}])
 ;

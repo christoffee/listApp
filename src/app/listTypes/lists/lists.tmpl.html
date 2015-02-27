@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="col-sm-4 col-md-3 lists">
+	<div class="col-sm-4 col-md-3 lists" ng-show="listsCtrl.currentListName">
 		<h1>{{listsCtrl.currentListName}}</h1>
 		<div class="list-group">
-			<div>
-				<a ng-repeat="list in listsCtrl.lists | filter:{list:listsCtrl.currentListName}" ui-sref="listApp.listTypes.lists({list: list.list, listItem: list.title})" class="list-group-item" ng-class="{'active':listsCtrl.isCurrentList(list)}">
+			<div ng-repeat="list in listsCtrl.lists | filter:{list:listsCtrl.currentListName}">
+				<a  ui-sref="listApp.listTypes.lists({list: list.list, listItem: list.title})" class="list-group-item" ng-class="{'active':listsCtrl.isCurrentList(list)}">
 				 {{list.title}}
 				</a>
-				<span class="glyphicon glyphicon-edit"></span>
+				<span class="glyphicon glyphicon-edit pull-right"></span>
 			</div>
 			
 			<div ng-show="listsCtrl.isCreating">
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-8 col-md-7 listItems">
+	<div class="col-sm-8 col-md-7 listItems" ng-show="listsCtrl.currentListItemName">
 		<!-- <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
 		    <button type="button" class="btn btn-link" ng-click="setEditedBookmark(bookmark);startEditing();" ><span class="glyphicon glyphicon-pencil"></span>
 		    </button> -->

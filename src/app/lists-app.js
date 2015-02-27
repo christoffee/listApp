@@ -10,6 +10,7 @@
  */
 angular
   .module('listApp', [
+    'ngAnimate',
     'ui.router' ,
     'listTypes',
     'listTypes.lists'
